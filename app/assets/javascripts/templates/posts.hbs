@@ -1,0 +1,19 @@
+<div class="col-md-3">
+  <table class="table">
+    <thead>
+      <tr><th>
+        Recent Posts
+      </th></tr>
+    </thead>
+    {{#each model}}
+      <tr>
+        <td>
+          {{#link-to 'post' this}}{{title}}{{/link-to}}
+        </td>
+      </tr>
+    {{/each}}
+  </table>
+</div>
+<div class="col-md-9">
+  {{outlet}}
+</div>

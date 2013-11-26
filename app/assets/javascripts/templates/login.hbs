@@ -1,0 +1,26 @@
+<form {{action login content on="submit"}} class="col-md-12 form-horizontal">
+  <legend>Login</legend>
+    {{#if errorMsg}}
+      <div class="alert alert-error">
+        {{errorMsg}}
+      </div>
+    {{/if}}
+  <div class="form-group">
+    <label class="col-sm-2 control-label" for="email">Email</label>
+    <div class="col-md-6">
+      {{view Em.TextField valueBinding="email" id="email" class="form-control"}}
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="col-sm-2 control-label" for="password">Password</label>
+    <div class="col-md-6">
+      {{view Ember.TextField valueBinding="password" type="password" id="password" class="form-control"}}
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-md-offset-2 col-md-6">
+      <button  type="submit" class="btn btn-primary" value="Login">Login</button>
+      <input {{action cancel}} type="submit" class="btn btn-default" value="Cancel" />
+    </div>
+  </div>
+</form>

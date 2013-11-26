@@ -1,0 +1,20 @@
+<div class="navbar navbar-default">
+  <div class="navbar-brand strong">{{#linkTo 'posts'}}Rails Ember Blog{{/linkTo}}</div>
+  <ul class="nav navbar-nav navbar-left">
+    <li>{{#link-to 'posts'}}Posts{{/link-to}}</li>
+    <li>{{#link-to 'about'}}About{{/link-to}}</li>
+  </ul>
+  <div class="nav navbar-nav navbar-right">
+    {{#if isAuthenticated}}
+        <li>
+          <span class="navbar-text">
+            Logged in as <b>{{currentUser.name}}</b>,
+            <a href="#" {{action logout}}>Logout</a>
+          </span>
+        </li>
+    {{else}}
+        <li>{{#link-to 'login'}}Login{{/link-to}}</li>
+        <li>{{#link-to 'registration'}}Register{{/link-to}}</li>
+    {{/if}}
+  </div>
+</div>
