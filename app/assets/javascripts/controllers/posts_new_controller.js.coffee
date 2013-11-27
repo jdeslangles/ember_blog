@@ -4,5 +4,5 @@ App.PostsNewController = Ember.ObjectController.extend
       post = App.Post.createRecord
         title: @get('title')
         body: @get('body')
-      post.save()
-      @transitionToRoute 'post', post
+      post.save().then =>
+        @transitionToRoute 'post', post

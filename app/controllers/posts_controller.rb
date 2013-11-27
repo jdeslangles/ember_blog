@@ -1,4 +1,7 @@
 class PostsController < ApplicationController
+  before_filter :normalize_params, only: [:create, :update]
+
+
   # GET /posts
   # GET /posts.json
   def index
@@ -40,7 +43,7 @@ class PostsController < ApplicationController
   # POST /posts
   # POST /posts.json
   def create
-    @post = Post.new(params[:post])
+    @post = current_user.posts.build(params[:post])
 
     respond_to do |format|
       if @post.save
@@ -80,4 +83,12 @@ class PostsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+private
+
+  def normalize_params
+    params[:post] = params[:post].slice(:title, :body)
+    params[:post][:content] ||= params[:post].delete(:body)
+  end
+
 end
