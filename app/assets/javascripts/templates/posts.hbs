@@ -3,6 +3,9 @@
     <thead>
       <tr><th>
         Recent Posts
+        {{#if isAuthenticated}}
+          <button class="pull-right" {{action 'new'}}>New</button>
+        {{/if}}
       </th></tr>
     </thead>
     {{#each model}}

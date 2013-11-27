@@ -17,6 +17,12 @@ class PostSerializer < ActiveModel::Serializer
     object.created_at.getutc.iso8601
   end
 
+  def last_updated_at
+    if object.updated_at != object.created_at
+      object.updated_at.getutc.iso8601
+    end    
+  end
+
   # def can_update
   # end
 
