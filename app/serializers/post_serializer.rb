@@ -1,5 +1,8 @@
 class PostSerializer < ActiveModel::Serializer
   attributes :id, :url, :title, :body, :date
+  
+  embed :ids, include: true
+  
   has_one :user
 
   def url
@@ -13,4 +16,10 @@ class PostSerializer < ActiveModel::Serializer
   def date
     object.created_at.getutc.iso8601
   end
+
+  # def can_update
+  # end
+
+  # def can_destroy
+  # end
 end
