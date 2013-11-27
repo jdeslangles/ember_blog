@@ -5,4 +5,7 @@ App.Post = DS.Model.extend
   body: DS.attr 'string' 
   date: DS.attr 'date' 
   lastUpdatedAt: DS.attr 'date'
+  canUpdate: DS.attr 'boolean'
+  canDestroy: DS.attr 'boolean'
+
   author: DS.belongsTo 'App.User'
